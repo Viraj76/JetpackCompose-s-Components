@@ -19,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.ParagraphStyle
 import androidx.compose.ui.text.SpanStyle
@@ -34,11 +35,14 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.compose.rememberImagePainter
 import com.example.jcpractice.components.ExpandableCard
+import com.example.jcpractice.components.GradientButton
 import com.example.jcpractice.components.LoadingButton
 import com.example.jcpractice.components.PTextFields
 import com.example.jcpractice.components.PracticeCoil
 import com.example.jcpractice.components.PracticePasswordText
 import com.example.jcpractice.ui.theme.JCPracticeTheme
+import com.example.jcpractice.ui.theme.c1
+import com.example.jcpractice.ui.theme.c2
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,7 +57,9 @@ class MainActivity : ComponentActivity() {
                         .fillMaxSize(),
                     contentAlignment = Alignment.Center
                 ) {
-                    PracticePasswordText()
+                    GradientButton(text = "Generate Quiz", gradient = Brush.horizontalGradient(colors = listOf(
+                        c1, c2)) , textColor = Color.White
+                    )
                 }
             }
         }
