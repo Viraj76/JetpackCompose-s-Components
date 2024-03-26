@@ -1,6 +1,7 @@
 package com.example.jcpractice
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -8,9 +9,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.MaterialTheme
@@ -34,6 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.compose.rememberImagePainter
+import com.example.jcpractice.components.CustomItem
 import com.example.jcpractice.components.ExpandableCard
 import com.example.jcpractice.components.GradientButton
 import com.example.jcpractice.components.LoadingButton
@@ -52,14 +58,20 @@ class MainActivity : ComponentActivity() {
             JCPracticeTheme {
                 // A surface container using the 'background' color from the theme
                 // first background and then padding
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    GradientButton(text = "Generate Quiz", gradient = Brush.horizontalGradient(colors = listOf(
-                        c1, c2)) , textColor = Color.White
-                    )
+                val personRepository = PersonRepository()
+                val allPersonData = personRepository.getAllPersonDetail()
+
+                LazyColumn(
+                    contentPadding = PaddingValues(all = 12.dp),
+                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                ){
+                    itemsIndexed(
+                        items = allPersonData,
+
+                    ){itemIndex,person->
+                        Log.d("Viraj"  , itemIndex.toString())
+                        CustomItem(person = person)
+                    }
                 }
             }
         }

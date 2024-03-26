@@ -42,6 +42,7 @@ import androidx.compose.ui.unit.sp
 /*
 should be custamizale
  */
+@Preview
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ExpandableCard(){
