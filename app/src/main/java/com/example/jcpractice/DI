@@ -1,0 +1,10 @@
+@Provides   === by this way , hilt provides the instance
+
+@InstallIn   === We have to install our module in one component like application  , activity , fragments
+		hilt goes from bottom.
+
+@Binds    ==   it binds the interfaces with one of its particular implementation
+
+Qualifiers ====   whenever we will be having multiples @provides for the same interfaces impl, hilt would be confused which 		instance I have to provide i.e. we have to use the qualifiers , so there is a anotation @Named in which we 		define the Names of provides to distinguish. Alos we can make our custom anotation to deal with typos.
+
+@Scopes (@Signleton,@ActivityScoped)  == if we have to create only one object of an class in the entire application then we 					use the Singleton annotations , in case of ActivityScoped , it will give the same instance till the acitivity is live , if it is destroyed then a new instance would be given .
