@@ -37,6 +37,8 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import coil.compose.rememberImagePainter
 import com.example.jcpractice.components.CustomItem
@@ -46,33 +48,35 @@ import com.example.jcpractice.components.LoadingButton
 import com.example.jcpractice.components.PTextFields
 import com.example.jcpractice.components.PracticeCoil
 import com.example.jcpractice.components.PracticePasswordText
+import com.example.jcpractice.practicenavigation.screens.SetupNavGraph
 import com.example.jcpractice.ui.theme.JCPracticeTheme
 import com.example.jcpractice.ui.theme.c1
 import com.example.jcpractice.ui.theme.c2
 
 class MainActivity : ComponentActivity() {
+    private lateinit var navHostController: NavHostController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
             JCPracticeTheme {
                 // A surface container using the 'background' color from the theme
                 // first background and then padding
-                val personRepository = PersonRepository()
-                val allPersonData = personRepository.getAllPersonDetail()
-
-                LazyColumn(
-                    contentPadding = PaddingValues(all = 12.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp)
-                ){
-                    itemsIndexed(
-                        items = allPersonData,
-
-                    ){itemIndex,person->
-                        Log.d("Viraj"  , itemIndex.toString())
-                        CustomItem(person = person)
-                    }
-                }
+//                val personRepository = PersonRepository()
+//                val allPersonData = personRepository.getAllPersonDetail()
+//                LazyColumn(
+//                    contentPadding = PaddingValues(all = 12.dp),
+//                    verticalArrangement = Arrangement.spacedBy(12.dp)
+//                ){
+//                    itemsIndexed(
+//                        items = allPersonData,
+//
+//                    ){itemIndex,person->
+//                        Log.d("Viraj"  , itemIndex.toString())
+//                        CustomItem(person = person)
+//                    }
+//                }
+                navHostController = rememberNavController()
+                SetupNavGraph(navHostController = navHostController)
             }
         }
     }
