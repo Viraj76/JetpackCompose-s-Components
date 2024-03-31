@@ -22,7 +22,7 @@ fun HomeScreen(
     ) {
         Text(
             modifier = Modifier.clickable {
-                navController.navigate(route = Routs.Detail.passIdAndName(34, "Viraj"))
+                navController.navigate(route = Routs.Detail.passId(34))
             },
             text = "Go to Detail Screen",
             color = Color.Blue,

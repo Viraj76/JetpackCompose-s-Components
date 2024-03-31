@@ -31,10 +31,12 @@ fun SetupNavGraph(
             arguments = listOf(
                 navArgument(DETAIL_ARGUMENT_KEY) {
                     type = NavType.IntType
-                },
-                navArgument(DETAIL_ARGUMENT_KEY1) {
-                    type = NavType.StringType
+                    defaultValue = 45
                 }
+//                ,
+//                navArgument(DETAIL_ARGUMENT_KEY1) {
+//                    type = NavType.StringType
+//                }
             )
         ) {
             Log.d("args", it.arguments?.getInt(DETAIL_ARGUMENT_KEY).toString())
