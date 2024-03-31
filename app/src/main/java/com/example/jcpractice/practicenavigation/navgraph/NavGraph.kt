@@ -40,7 +40,6 @@ fun SetupNavGraph(
             )
         ) {
             Log.d("args", it.arguments?.getInt(DETAIL_ARGUMENT_KEY).toString())
-            Log.d("args", it.arguments?.getString(DETAIL_ARGUMENT_KEY1).toString())
             DetailScreen(navHostController)
         }
 
