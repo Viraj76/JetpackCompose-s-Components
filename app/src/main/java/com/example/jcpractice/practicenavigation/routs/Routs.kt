@@ -13,13 +13,13 @@ detail_screen?id={$DETAIL_ARGUMENT_KEY}
 sealed class Routs(val rout : String) {
 
     object Home : Routs(rout = "home_screen")
-    object Detail : Routs(rout = "detail_screen?id={$DETAIL_ARGUMENT_KEY}"){
-        fun passId(id : Int = 0): String{
+    object Detail : Routs(rout = "detail_screen?id={$DETAIL_ARGUMENT_KEY}&name={$DETAIL_ARGUMENT_KEY1}"){
+        fun passId(id : Int = 0 ): String{
             return this.rout.replace(oldValue = DETAIL_ARGUMENT_KEY, newValue = id.toString())
         }
 
-        fun passIdAndName(id : Int, name : String) : String{
-            return this.rout.replace(oldValue = "{$DETAIL_ARGUMENT_KEY}/{$DETAIL_ARGUMENT_KEY1}", newValue = "$id/$name")
+        fun passIdAndName(id : Int = 0, name : String  = "viraj") : String{
+            return this.rout.replace(oldValue = "$DETAIL_ARGUMENT_KEY&name=$DETAIL_ARGUMENT_KEY1", newValue = "$id?name=$name")
         }
     }
 

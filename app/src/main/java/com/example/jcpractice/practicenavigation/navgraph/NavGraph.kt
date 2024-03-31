@@ -33,13 +33,15 @@ fun SetupNavGraph(
                     type = NavType.IntType
                     defaultValue = 45
                 }
-//                ,
-//                navArgument(DETAIL_ARGUMENT_KEY1) {
-//                    type = NavType.StringType
-//                }
+                ,
+                navArgument(DETAIL_ARGUMENT_KEY1) {
+                    type = NavType.StringType
+                    defaultValue = "viraj"
+                }
             )
         ) {
             Log.d("args", it.arguments?.getInt(DETAIL_ARGUMENT_KEY).toString())
+            Log.d("args", it.arguments?.getString(DETAIL_ARGUMENT_KEY1).toString())
             DetailScreen(navHostController)
         }
 
