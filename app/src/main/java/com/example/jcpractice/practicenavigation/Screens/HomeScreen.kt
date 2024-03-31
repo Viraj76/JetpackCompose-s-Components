@@ -10,19 +10,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.jcpractice.practicenavigation.screens.routs.Routs
+import com.example.jcpractice.practicenavigation.routs.Routs
 
 @Composable
 fun HomeScreen(
     navController: NavController
-){
+) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
-    ){
+    ) {
         Text(
             modifier = Modifier.clickable {
-                        navController.navigate(route = Routs.Detail.rout)
+                navController.navigate(route = Routs.Detail.passIdAndName(34, "Viraj"))
             },
             text = "Go to Detail Screen",
             color = Color.Blue,
