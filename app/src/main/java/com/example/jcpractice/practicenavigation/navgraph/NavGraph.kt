@@ -31,7 +31,7 @@ fun SetupNavGraph(
             arguments = listOf(
                 navArgument(DETAIL_ARGUMENT_KEY) {
                     type = NavType.IntType
-                    defaultValue = 45
+
                 }
                 ,
                 navArgument(DETAIL_ARGUMENT_KEY1) {
