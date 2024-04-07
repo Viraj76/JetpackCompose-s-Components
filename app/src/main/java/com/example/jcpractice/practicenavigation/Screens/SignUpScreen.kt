@@ -12,29 +12,19 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.jcpractice.practicenavigation.navigation.Routs
 
-
 @Composable
-fun DetailScreen(
+fun SignUpScreen(
     navController: NavController
-){
+) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
-    ){
+    ) {
         Text(
             modifier = Modifier.clickable {
-//                navController.navigate(route = Routs.Home.rout)   // detail screen will remain in the backstack
-//                navController.popBackStack()   // it will pop the detail screen but can not pass arguments from detail to home
-
-                // now we can pop , also we can pass some arguments
-                navController.navigate(route = Routs.Home.rout){
-                    popUpTo(Routs.Home.rout){
-                        inclusive = true
-                    }
-                }
-
+                navController.popBackStack()
             },
-            text = "Go to Home Screen",
+            text = "SignUp",
             color = Color.Blue,
             fontSize = 18.sp,
         )

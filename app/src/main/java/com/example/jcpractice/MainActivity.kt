@@ -13,7 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
-import com.example.jcpractice.practicenavigation.navgraph.SetupNavGraph
+import com.example.jcpractice.practicenavigation.navigation.navgraph.SetupNavGraph
 import com.example.jcpractice.ui.theme.JCPracticeTheme
 
 class MainActivity : ComponentActivity() {
