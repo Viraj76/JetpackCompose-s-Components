@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -20,54 +21,53 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.jcpractice.R
+import com.example.jcpractice.ui.theme.Purple40
 import com.example.jcpractice.ui.theme.c1
 import com.example.jcpractice.ui.theme.c2
+import com.example.jcpractice.ui.theme.c3
+import com.example.jcpractice.ui.theme.c4
 
 @OptIn(ExperimentalMaterial3Api::class)
+@Preview
 @Composable
 fun GradButton(
-    text : String,
-    gradient : Brush,
-    textColor : Color
 ){
     Button(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 32.dp, end = 32.dp),
+            .padding(start = 32.dp, end = 32.dp)
+,
         onClick = {
             //your code
         },
-
         contentPadding = PaddingValues(),
         colors = ButtonDefaults.buttonColors(
             containerColor = Color.Transparent
         ),
-        shape = RoundedCornerShape(10.dp)
+        shape = RoundedCornerShape(10.dp),
     ) {
-
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(
-                    brush = Brush.horizontalGradient(colors = listOf(c1, c2)),
-                    shape = RoundedCornerShape(5.dp)
+                    brush = Brush.linearGradient(colors = listOf(c1, c2, c3, c4)),
                 )
-                .clip(RoundedCornerShape(5.dp))
-                /*.background(
-                    brush = Brush.linearGradient(colors = gradientColors),
-                    shape = RoundedCornerShape(cornerRadius)
-                )*/
                 .padding(horizontal = 16.dp, vertical = 8.dp),
             contentAlignment = Alignment.Center
         ) {
             Text(
                 text = "Generate Quiz",
-                fontSize = 20.sp,
-                color = Color.White
+                style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold),
+                fontSize = 22.sp
             )
         }
     }

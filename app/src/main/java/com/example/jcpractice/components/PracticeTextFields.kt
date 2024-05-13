@@ -29,6 +29,7 @@ fun PTextFields(){
 
     OutlinedTextField(
         value = tvText,
+
         onValueChange ={
             tvText = ""
             tvText = it

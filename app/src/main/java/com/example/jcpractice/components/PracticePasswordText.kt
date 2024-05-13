@@ -32,6 +32,7 @@ fun PracticePasswordText() {
         onValueChange = { passwordText = it },
         placeholder = { Text(text = "Enter password")},
         label = { Text(text = "Enter Password")},
+        readOnly = true,
         trailingIcon = {
             IconButton(onClick = { showPassword = !showPassword }) {
                 Icon(
